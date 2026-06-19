@@ -1,0 +1,17 @@
+﻿*.pyc
+__pycache__/
+*.pth
+runs_v*/
+runs_ablation/
+runs_transformer/
+_archive/
+results_ablation/
+_*.py
+*.zip
+*.pdf
+data/raw/
+data/raw_backup/
+data/source/
+.codex/
+.agents/
+__pycache__/
