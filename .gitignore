@@ -1,17 +1,38 @@
-﻿*.pyc
+﻿# Python
 __pycache__/
+*.pyc
 *.pth
+
+# Model checkpoints (large, can be regenerated)
 runs_v*/
 runs_ablation/
 runs_transformer/
-_archive/
-results_ablation/
+
+# Temp files
 _*.py
-*.zip
-*.pdf
+_archive/
+
+# Results (can be regenerated)
+results_ablation/
+btc_conditional/results/
+
+# Old paper versions
+paper_current.md
+paper_2026*.md
+paper_final_*.md
+paper_style.css
+paper_draft.html
+paper.md
+
+# Data (raw only; processed is needed for quick reproducibility)
 data/raw/
 data/raw_backup/
 data/source/
+
+# Codex workspace
 .codex/
 .agents/
-__pycache__/
+
+# Environment
+*.zip
+*.pdf
