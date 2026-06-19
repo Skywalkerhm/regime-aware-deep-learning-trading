@@ -23,8 +23,7 @@ def load_val_threshold(ckpt_path):
 # ── Regime detection ──
 def regime(row):
     v = row['volatility_20d']; sr = row['sma_ratio_20_50']; r20 = row['return_20d']
-    if v > 0.093 or r20 < -0.10: return 'crisis'
-    if abs(sr-1) > 0.025: return 'trend_up' if sr > 1 else 'trend_down'
+    if v > 0.186 or r20 < -0.10: return 'crisis'
     if abs(sr-1) > 0.008: return 'trend_up' if sr > 1 else 'trend_down'
     return 'chop'
 

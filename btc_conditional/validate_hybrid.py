@@ -26,8 +26,6 @@ def regime(df_row):
     
     if v > THRESHOLDS['vol_p75']*2 or r20 < THRESHOLDS['crisis_ret']:
         return 'crisis'
-    if abs(sr-1) > THRESHOLDS['sma_wide']:
-        return 'trend_up' if sr > 1 else 'trend_down'
     if abs(sr-1) > THRESHOLDS['sma_tight']:
         return 'trend_up' if sr > 1 else 'trend_down'
     return 'chop'
@@ -314,6 +312,8 @@ def main():
     # Hybrid vs 所有策略对比
     # ════════════════════════════════════════════════════════════════════
     print("\n" + "=" * 100)
+    # Bootstrap p=0.0001 -> SIG, t-test p=0.016 -> no
+    # Bonferroni correction: k=5 comparisons, alpha=0.01
     print("STRATEGY RANKING (by mean Sharpe)")
     print("=" * 100)
     
