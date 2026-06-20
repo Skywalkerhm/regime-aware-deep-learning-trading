@@ -11,6 +11,7 @@ from btc_conditional.trainer import BTCTrainer, BTCDataLoader, ALL_FEATS
 DATA_PATH = "data/processed/btc_daily_full.csv"
 RESULTS_DIR = "btc_conditional/results_v2"
 
+THRESHOLDS = {'vol_p75': 0.093, 'crisis_ret': -0.10, 'sma_tight': 0.008, 'sma_wide': 0.025}
 def load_val_threshold(ckpt_path):
     """加载验证集上选定的阈值、温度和归一化统计量"""
     threshold_path = ckpt_path.replace("best_model.pth", "threshold.json")
@@ -22,12 +23,10 @@ def load_val_threshold(ckpt_path):
     return None, None, None, None
 
 # ── 状态检测 (v1 固定阈值，已验证OK) ──
-THRESHOLDS = {'vol_p75': 0.093, 'crisis_ret': -0.10, 'sma_tight': 0.008, 'sma_wide': 0.025}
 
 def regime(row):
     v = row['volatility_20d']; sr = row['sma_ratio_20_50']; r20 = row['return_20d']
     if v > THRESHOLDS['vol_p75']*2 or r20 < THRESHOLDS['crisis_ret']: return 'crisis'
-    if abs(sr-1) > THRESHOLDS['sma_wide']: return 'trend_up' if sr > 1 else 'trend_down'
     if abs(sr-1) > THRESHOLDS['sma_tight']: return 'trend_up' if sr > 1 else 'trend_down'
     return 'chop'
 

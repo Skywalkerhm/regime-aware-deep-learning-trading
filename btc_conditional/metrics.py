@@ -29,3 +29,19 @@ def calc_all_metrics(returns):
     return {"sharpe": sharpe, "annualized_return": ann_ret,
             "annualized_vol": ann_vol, "max_drawdown": max_dd,
             "win_rate": win_rate, "total_return": total_ret}
+
+
+def compute_calibration(probs, y_true, n_bins=10):
+    """ECE and Brier score for probability calibration assessment."""
+    import numpy as np
+    from sklearn.metrics import brier_score_loss
+    bins = np.linspace(0, 1, n_bins + 1)
+    bin_idx = np.clip(np.digitize(probs, bins) - 1, 0, n_bins - 1)
+    ece = 0.0
+    for i in range(n_bins):
+        m = bin_idx == i
+        if m.sum() == 0:
+            continue
+        ece += (m.sum() / len(probs)) * abs(y_true[m].mean() - probs[m].mean())
+    brier = brier_score_loss(y_true, probs)
+    return {"ece": float(ece), "brier": float(brier), "n": len(probs)}

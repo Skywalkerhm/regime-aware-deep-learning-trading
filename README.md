@@ -1,52 +1,77 @@
-# BTC Regime-Aware Trading Strategy
+﻿# Regime-Aware Deep Learning for Bitcoin Trading
 
-A market regime-aware Bitcoin trading framework combining LSTM prediction with real-time regime gating.
+Cross-model study of regime-aware decision threshold modulation for Bitcoin and TSLA trading strategies.
 
-## Core Mechanism
+## Key Results
 
-- **Regime Gate**: Classifies market state (trend_up/trend_down/chop/crisis) using only real-time observable price features
-- **LSTM Controller**: Two-layer LSTM predicting intraday return direction, outputting probability as position size
-- **Hybrid**: Regime decides when NOT to trade, LSTM decides how much to trade
+| Model | Pure Sharpe | +Regime | Delta | Calibration (ECE) |
+|------|-----------|--------|-------|-------------------|
+| Transformer | -0.253 | **+1.332** | +1.079 | 0.098 (worst) |
+| LSTM | +0.792 | **+1.520** | +0.728 | 0.076 |
+| XGBoost | +0.993 | +0.540 | -0.453 | 0.030 (best) |
 
-## Key Result
+- Cross-asset validation on TSLA confirms the effect (LSTM: -0.229 to +1.848, 8/8 folds)
+- Bootstrap test p=0.0001, 95% CI [+0.322, +1.168]; Bonferroni-corrected for k=5
 
-**Hybrid strategy achieves Sharpe +1.520** (p=0.016) across 8 walk-forward folds (2018-2026), significantly outperforming standalone LSTM (+0.792, p=0.016) and Buy & Hold (+1.108). Hybrid wins 7/8 folds. An ablation removing same-day open price confirms the results are robust (Hybrid +1.585 vs LSTM +0.953).
+## Paper
 
-## Setup
+- paper_jfds.md — JFDS submission draft (Markdown)
+- paper_jfds.docx — Word version
 
-```bash
+## Reproduction
+
+`ash
+git clone https://github.com/Skywalkerhm/regime-aware-deep-learning-trading.git
+cd regime-aware-deep-learning-trading
 pip install -r requirements.txt
-python3 build_dataset.py              # Build data pipeline
-python3 btc_conditional/train.py      # Train 8-fold LSTM models
-```
 
-## Files
+# BTC data + 8-fold LSTM training
+python build_dataset.py
+python btc_conditional/train_all_folds.py
 
-| File | Purpose |
-|------|---------|
-| `build_dataset.py` | Data pipeline (Kaggle + Yahoo → merged CSV) |
-| `btc_conditional/model.py` | Two-layer LSTM |
-| `btc_conditional/trainer.py` | Trainer + data loader + grid search |
-| `btc_conditional/backtest.py` | Backtest engine (10bps cost) |
-| `btc_conditional/metrics.py` | Performance metrics |
-| `btc_conditional/regime_final.py` | Final regime strategy comparison |
-| `btc_conditional/continuous_all.py` | Continuous position sizing comparison |
-| `btc_conditional/run_ablation.py` | Feature ablation |
-| `btc_conditional/analyze_all.py` | Comprehensive statistical analysis |
+# Run main results
+python btc_conditional/validate_hybrid.py        # BTC 8-fold hybrid validation
+python btc_conditional/regime_final.py            # 5-strategy comparison
+python btc_conditional/evaluate_calibration.py    # ECE/Brier for all 3 models
+python btc_conditional/baseline_xgboost.py        # XGBoost baseline
+python btc_conditional/train_transformer.py       # Transformer baseline
+
+# TSLA
+python btc_conditional/validate_tsla.py           # TSLA cross-asset validation
+
+# Consistency check
+python verify.py
+`
+
+## File Structure
+
+`
+btc_conditional/
+  model.py, model_transformer.py           # Model architectures
+  trainer.py, backtest.py, metrics.py      # Core engine
+  validate_hybrid.py, regime_final.py      # Main validations
+  evaluate_calibration.py                  # ECE/Brier calibration
+  baseline_xgboost.py, train_transformer.py # Baselines
+  validate_tsla.py                         # TSLA cross-asset
+  results_v2/                              # All result CSVs
+
+data/processed/                              # BTC + TSLA features
+paper_jfds.md, paper_jfds.docx               # Paper
+`
 
 ## Data Sources
 
-- Price: Yahoo Finance (2014-2026)
-- On-chain: Kaggle (blockchain.com + lookintobitcoin, 2009-2023)
-- Backup: `data/raw_backup/` contains all original files
+- Bitcoin OHLCV: Yahoo Finance (2014-2026)
+- TSLA OHLCV: Yahoo Finance (2010-2026)
+- On-chain metrics: blockchain.com, lookintobitcoin.com
 
-## Leakage Audit
+## Methodology
 
-All potential look-ahead biases have been checked and sealed:
+- **Regime detection**: 4-state classifier (trend_up/trend_down/chop/crisis) using volatility and moving-average signals
+- **Walk-forward**: 8 folds, 2-year train / 6-month test
+- **Transaction cost**: 10 bps on position changes
+- **Statistical tests**: Bootstrap (10,000 resamples), paired t-test, Wilcoxon signed-rank, Bonferroni correction
 
-1. Regime thresholds calibrated on training data only (2014-2018)
-2. Backtest profit aligned to predicted return (return[t+1], not return[t])
-3. Hybrid coefficients frozen to default values (no tuning)
-4. Fold labels not used by any strategy
-5. Feature timestamps audited (delayed chain features don't affect regime)
-6. All statistical tests include bootstrap CI and paired tests
+## License
+
+[MIT](LICENSE) or add your preferred license.

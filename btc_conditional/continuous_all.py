@@ -53,10 +53,8 @@ def pos_lstm(prob): return float(np.clip(prob,0,1))
 
 def pos_hybrid(prob, df, idx):
     r = regime(df.loc[idx])
-    if r == 'trend_up': return float(min(1.0, prob*1.2))
-    if r == 'trend_down': return 0.0
-    if r == 'chop': return float(prob*0.5)
-    return 0.0
+    thr = {'trend_up': 0.40, 'trend_down': 0.50, 'chop': 0.55, 'crisis': 0.80}.get(r, 0.50)
+    return float(prob >= thr)
 
 # ── Preprocess ──
 def prep(df):
