@@ -1,0 +1,90 @@
+{
+  "by_scenario": [
+    {
+      "scenario": "asymmetric_utility",
+      "runs": 12,
+      "mean_oracle_lb_gain": 0.15588958316209214,
+      "mean_oracle_ub_gain": 0.21452306013319486,
+      "mean_drrl_delta": 0.051774331504481054,
+      "mean_recovery": 0.31172887247945985,
+      "activation_rate": 0.3333333333333333,
+      "abstain_rate_when_near_zero": NaN
+    },
+    {
+      "scenario": "decision_relevant_state",
+      "runs": 12,
+      "mean_oracle_lb_gain": 1.012868894893145,
+      "mean_oracle_ub_gain": 1.019416902183037,
+      "mean_drrl_delta": 1.0198997772881455,
+      "mean_recovery": 1.0092559384419963,
+      "activation_rate": 1.0,
+      "abstain_rate_when_near_zero": NaN
+    },
+    {
+      "scenario": "high_separation",
+      "runs": 12,
+      "mean_oracle_lb_gain": 0.003797338119592928,
+      "mean_oracle_ub_gain": 0.057336153397900914,
+      "mean_drrl_delta": 0.0,
+      "mean_recovery": 0.0,
+      "activation_rate": 0.0,
+      "abstain_rate_when_near_zero": 1.0
+    },
+    {
+      "scenario": "low_dispersion",
+      "runs": 12,
+      "mean_oracle_lb_gain": 0.007475368112604529,
+      "mean_oracle_ub_gain": 0.07737030318540694,
+      "mean_drrl_delta": 0.0,
+      "mean_recovery": 0.0,
+      "activation_rate": 0.0,
+      "abstain_rate_when_near_zero": 1.0
+    },
+    {
+      "scenario": "low_separation",
+      "runs": 12,
+      "mean_oracle_lb_gain": -0.010933990804457396,
+      "mean_oracle_ub_gain": 0.05839727081960518,
+      "mean_drrl_delta": 0.0,
+      "mean_recovery": 0.0,
+      "activation_rate": 0.0,
+      "abstain_rate_when_near_zero": 1.0
+    },
+    {
+      "scenario": "no_transition",
+      "runs": 12,
+      "mean_oracle_lb_gain": -0.006397856837018305,
+      "mean_oracle_ub_gain": 0.017914212583648167,
+      "mean_drrl_delta": 0.0,
+      "mean_recovery": 0.0,
+      "activation_rate": 0.0,
+      "abstain_rate_when_near_zero": 1.0
+    },
+    {
+      "scenario": "uninformative_regime",
+      "runs": 12,
+      "mean_oracle_lb_gain": -0.013055632302835504,
+      "mean_oracle_ub_gain": 0.05263442066021878,
+      "mean_drrl_delta": 0.0,
+      "mean_recovery": 0.0,
+      "activation_rate": 0.0,
+      "abstain_rate_when_near_zero": 1.0
+    },
+    {
+      "scenario": "weak_detector",
+      "runs": 12,
+      "mean_oracle_lb_gain": 0.004724235129025599,
+      "mean_oracle_ub_gain": 0.06181519451264369,
+      "mean_drrl_delta": 0.0,
+      "mean_recovery": 0.0,
+      "activation_rate": 0.0,
+      "abstain_rate_when_near_zero": 1.0
+    }
+  ],
+  "overall": {
+    "corr_oracle_lb_gain__drrl_delta": 0.9871272442254746,
+    "mean_recovery_positive_controls": 0.5871043604095361,
+    "activation_rate_positive_controls": 0.5925925925925926,
+    "activation_rate_negative_controls": 0.0
+  }
+}

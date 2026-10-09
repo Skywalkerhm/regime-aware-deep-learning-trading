@@ -1,0 +1,29 @@
+{
+  "fixed_threshold": 0.72,
+  "groups": {
+    "BTC-USD:lstm": {
+      "nu_lb": -0.22601025799675015,
+      "delta_vs_best_fixed": 0.1046650709180739,
+      "delta_vs_current_rule": 0.05254013336488991,
+      "n": 305
+    },
+    "BTC-USD:transformer": {
+      "nu_lb": -0.3140133040676578,
+      "delta_vs_best_fixed": 0.03597941771728003,
+      "delta_vs_current_rule": 0.10872934495536724,
+      "n": 305
+    },
+    "BTC-USD:xgboost": {
+      "nu_lb": -0.2870080921791116,
+      "delta_vs_best_fixed": 0.02143106621096902,
+      "delta_vs_current_rule": -0.0200275926603265,
+      "n": 365
+    },
+    "TSLA:lstm": {
+      "nu_lb": -0.17953674529669228,
+      "delta_vs_best_fixed": 0.011583535357149843,
+      "delta_vs_current_rule": -0.19300523594974842,
+      "n": 769
+    }
+  }
+}

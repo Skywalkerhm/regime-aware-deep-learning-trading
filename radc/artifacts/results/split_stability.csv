@@ -1,0 +1,5 @@
+scenario,stability_rate,dominant_feature,dominant_feature_rate,mean_selection_frequency
+decision_relevant_state,1.0,volatility_20d,1.0,1.0
+asymmetric_utility,1.0,volatility_20d,1.0,0.9333333333333333
+high_separation,1.0,trend_strength,1.0,0.8066666666666666
+uninformative_regime,1.0,trend_strength,0.8,0.6666666666666667

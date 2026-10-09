@@ -1,47 +1,75 @@
-# Regime-Aware Deep Learning for Bitcoin Trading
+# Regime-Aware Decision Calibration
 
-Cross-model study of regime-aware decision threshold modulation for Bitcoin and TSLA trading strategies.
+Code, data, and manuscript materials for **"Regime-aware decision calibration: when
+should state information change a trading threshold?"** (PLOS ONE submission).
 
-**Final paper:** paper_jfds_v4.docx (also available as paper_jfds.md)
+The repository also retains the earlier development material (see *Historical material*
+below).
 
-## Key Results
+## The paper in one paragraph
 
-| Model | Pure Sharpe | +Regime | Delta | Calibration (ECE) |
-|------|-----------|--------|-------|-------------------|
-| Transformer | +0.253 | **+1.332** | +1.079 | 0.098 (worst) |
-| LSTM | +0.792 | **+1.520** | +0.728 | 0.076 |
-| XGBoost | +0.993 | +0.540 | -0.453 | 0.030 (best) |
+Conditioning a trading threshold on a detected market "regime" is a popular, model-agnostic
+intervention, but it often fails out of sample. We show that the objects usually invoked
+to justify it — probability calibration and regime-classification accuracy — are not the
+decision mechanism. The relevant object is **decision calibration**: a state partition
+improves decisions only if it changes the optimal action on a region whose expected
+utility exceeds the estimation and risk costs. We formalize this as a decision-regret /
+value-of-information problem, define **Regime-Aware Decision Calibration (RADC)**, prove
+five results, and give a two-gate estimator that activates state-dependent thresholds only
+when a lower confidence bound on the value of state information exceeds a conformal risk
+buffer, and otherwise collapses to the best fixed threshold.
 
-- Cross-asset validation on TSLA confirms the effect (LSTM: -0.229 to +1.848, 8/8 folds)
-- Bootstrap test p=0.0001, 95% CI [+0.322, +1.168]; Bonferroni-corrected for k=5
-- ECE monotonic ordering (Transformer > LSTM > XGBoost) supports the calibration mechanism
+## Repository layout
 
-## Reproduction
+```
+radc/                    Reproducible workspace for the paper
+├── run_all.sh           One-command reproduction (verify -> test -> re-run -> diff)
+├── artifacts/bundles/   Frozen derived prediction bundle + SHA-256
+├── artifacts/results/   All result tables
+├── configs/             Evaluation protocol and data splits
+├── src/rutl/            RADC estimator, metrics, decision-regret module
+├── experiments/         Experiment runners
+├── tests/               Automated test suite
+└── direction_evolve2/   DRRL configuration used by the calibration experiment
+submission/              Manuscript materials
+├── manuscript/          Main text, title page, cover letter, statements
+├── figures/             Fig1.png, Fig2.png, Fig3.png
+└── supporting_information/
+LICENSE                  MIT
+```
 
-pip install -r requirements.txt
-python build_dataset.py
-python btc_conditional/train_all_folds.py
-python btc_conditional/validate_hybrid.py
-python btc_conditional/regime_final.py
-python btc_conditional/evaluate_calibration.py
-python btc_conditional/baseline_xgboost.py
-python btc_conditional/train_transformer.py
-python btc_conditional/validate_tsla.py
-python verify.py
+## Reproduce
 
-## File Structure
+```bash
+cd radc
+bash run_all.sh
+```
 
-paper_jfds_v4.docx          Final paper (Word)
-paper_jfds.md               Final paper (Markdown)
-btc_conditional/             Source code
-  model.py, trainer.py       LSTM model + training
-  validate_hybrid.py         Main validation
-  evaluate_calibration.py    ECE/Brier calibration
-  results_v2/                Result CSV files
-verify.py                    Consistency check
+This verifies the derived-bundle SHA-256, runs the test suite, re-runs all experiments into
+`out/`, and diffs them against `artifacts/results/` (differences should be exactly 0).
 
-## Data Sources
+Environment: Python 3.13, NumPy 2.5.0, pandas 3.0.3, scikit-learn 1.9.0, SciPy 1.18.0,
+Matplotlib 3.11.0 (`radc/environment.txt`).
 
-Bitcoin OHLCV: Yahoo Finance (2014-2026)
-TSLA OHLCV: Yahoo Finance (2010-2026)
-On-chain: blockchain.com, lookintobitcoin.com
+## Data
+
+`radc/artifacts/bundles/predictions_v1.csv` is a **derived** bundle (36,690 rows x 19
+columns): base-model probabilities (`p`, `u`), regime posteriors, `uncertainty`,
+`volatility_20d`, `trend_strength`, `return_20d`, labels `y` and `r_next`, and the
+identifiers/splits. It contains **no raw vendor series**.
+
+Raw data are third-party and are **not redistributed**: Bitcoin and Tesla daily prices from
+**Yahoo Finance** (BTC-USD, TSLA); Bitcoin on-chain metrics from **blockchain.com**;
+valuation/sentiment indicators (NUPL, Coin Days Destroyed, MVRV/SOPR-type, Fear & Greed)
+from **lookintobitcoin.com**. `build_dataset.py` regenerates the features from these public
+sources.
+
+## License
+
+Code: **MIT** (see `LICENSE`). Data and results: CC BY 4.0.
+
+## Historical material
+
+`btc_conditional/`, `paper_jfds*.md`, `paper.md`, `data/`, `verify.py` and
+`RESEARCH_REPORT.md` are from the earlier development of this research line and are kept
+for provenance.

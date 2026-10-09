@@ -1,0 +1,30 @@
+{
+  "valid": true,
+  "scores": {
+    "nu_lb": 0.36187618380826997,
+    "mean_net_utility": 0.4307985151814016,
+    "delta_vs_best_fixed": -0.13816809820637682,
+    "delta_vs_current_rule": 0.10347318942222561,
+    "max_drawdown": 0.3495302327840454,
+    "turnover": 66.8062170970168,
+    "runtime_s": 5.891976042000351,
+    "correctness": 1.0
+  },
+  "behavior": {
+    "policy_family": "evolved",
+    "context_dependence": 0.0,
+    "threshold_swing": 0.0,
+    "turnover_regime": "low",
+    "uncertainty_usage": "reported"
+  },
+  "feedback": {
+    "fixed_threshold": 0.72,
+    "best_fixed_nu_lb": 0.5000442820146468,
+    "current_rule_nu_lb": 0.25840299438604436
+  },
+  "artifacts": {
+    "candidate_path": "20260928update/alpha_evolve/candidates/g0000_known_good.py",
+    "bundle_path": "/Users/mh/Library/CloudStorage/OneDrive-个人/Obsidian/LSTM量化金融_revision/20260928update/artifacts/bundles/predictions_v1.csv",
+    "protocol_path": "/Users/mh/Library/CloudStorage/OneDrive-个人/Obsidian/LSTM量化金融_revision/20260928update/configs/evaluation_protocol.json"
+  }
+}

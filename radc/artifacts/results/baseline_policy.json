@@ -1,0 +1,30 @@
+{
+  "valid": true,
+  "scores": {
+    "nu_lb": 0.5304205565838385,
+    "mean_net_utility": 0.5872710449560021,
+    "delta_vs_best_fixed": -0.00898194658659468,
+    "delta_vs_current_rule": 0.2627202114214728,
+    "max_drawdown": 0.19166167155530786,
+    "turnover": 124.668,
+    "runtime_s": 7.740419417000339,
+    "correctness": 1.0
+  },
+  "behavior": {
+    "policy_family": "evolved",
+    "context_dependence": -0.11723030871682212,
+    "threshold_swing": 0.035881007067138364,
+    "turnover_regime": "medium",
+    "uncertainty_usage": "reported"
+  },
+  "feedback": {
+    "fixed_threshold": 0.71,
+    "best_fixed_nu_lb": 0.5394025031704331,
+    "current_rule_nu_lb": 0.2677003451623657
+  },
+  "artifacts": {
+    "candidate_path": "20260928update/src/rutl/policy.py",
+    "bundle_path": "/Users/mh/Library/CloudStorage/OneDrive-个人/Obsidian/LSTM量化金融_revision/20260928update/artifacts/bundles/synthetic_v1.csv",
+    "protocol_path": "/Users/mh/Library/CloudStorage/OneDrive-个人/Obsidian/LSTM量化金融_revision/20260928update/configs/evaluation_protocol.json"
+  }
+}

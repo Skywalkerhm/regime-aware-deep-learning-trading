@@ -1,0 +1,7 @@
+dataset,calibrator,raw_nu_lb,calibrated_nu_lb,effect
+synthetic_decision_relevant_state,temperature,-0.3665258317802523,-0.3665258317802523,0.0
+synthetic_decision_relevant_state,platt,-0.3665258317802523,-0.3665258317802523,0.0
+synthetic_decision_relevant_state,isotonic,-0.3665258317802523,-0.4241519406776967,-0.057626108897444406
+real_BTC_TSLA,temperature,-0.09352070025807148,-0.09352070025807148,0.0
+real_BTC_TSLA,platt,-0.09352070025807148,-0.09352070025807148,0.0
+real_BTC_TSLA,isotonic,-0.09352070025807148,-0.16143667508047818,-0.0679159748224067

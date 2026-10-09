@@ -1,0 +1,235 @@
+{
+  "protocol_version": "2026-09-28-rutl-v1",
+  "assets": {
+    "BTC-USD": {
+      "source_path": "../../data/processed/btc_daily_full.csv",
+      "models": [
+        "lstm",
+        "transformer",
+        "xgboost"
+      ],
+      "walk_forward": [
+        {
+          "fold": "fold_1",
+          "train_start": "2018-07-01",
+          "train_end": "2020-07-01",
+          "test_start": "2020-07-01",
+          "test_end": "2021-01-01",
+          "phase": "Recovery"
+        },
+        {
+          "fold": "fold_2",
+          "train_start": "2019-07-01",
+          "train_end": "2021-07-01",
+          "test_start": "2021-07-01",
+          "test_end": "2022-01-01",
+          "phase": "Peak"
+        },
+        {
+          "fold": "fold_3",
+          "train_start": "2020-07-01",
+          "train_end": "2022-07-01",
+          "test_start": "2022-07-01",
+          "test_end": "2023-01-01",
+          "phase": "Crash"
+        },
+        {
+          "fold": "fold_4",
+          "train_start": "2021-07-01",
+          "train_end": "2023-07-01",
+          "test_start": "2023-07-01",
+          "test_end": "2024-01-01",
+          "phase": "Recovery"
+        },
+        {
+          "fold": "fold_5",
+          "train_start": "2022-01-01",
+          "train_end": "2024-01-01",
+          "test_start": "2024-01-01",
+          "test_end": "2024-07-01",
+          "phase": "Bull"
+        },
+        {
+          "fold": "fold_6",
+          "train_start": "2022-07-01",
+          "train_end": "2024-07-01",
+          "test_start": "2024-07-01",
+          "test_end": "2025-01-01",
+          "phase": "Bull"
+        },
+        {
+          "fold": "fold_7",
+          "train_start": "2023-01-01",
+          "train_end": "2025-01-01",
+          "test_start": "2025-01-01",
+          "test_end": "2025-07-01",
+          "phase": "Bull"
+        },
+        {
+          "fold": "fold_8",
+          "train_start": "2023-07-01",
+          "train_end": "2025-07-01",
+          "test_start": "2025-07-01",
+          "test_end": "2026-01-01",
+          "phase": "Bear"
+        }
+      ]
+    },
+    "TSLA": {
+      "source_path": "../../data/processed/tsla_full.csv",
+      "models": [
+        "lstm"
+      ],
+      "walk_forward": [
+        {
+          "fold": "fold_1",
+          "train_start": "2018-07-01",
+          "train_end": "2020-07-01",
+          "test_start": "2020-07-01",
+          "test_end": "2021-01-01",
+          "phase": "Recovery"
+        },
+        {
+          "fold": "fold_2",
+          "train_start": "2019-07-01",
+          "train_end": "2021-07-01",
+          "test_start": "2021-07-01",
+          "test_end": "2022-01-01",
+          "phase": "Peak"
+        },
+        {
+          "fold": "fold_3",
+          "train_start": "2020-07-01",
+          "train_end": "2022-07-01",
+          "test_start": "2022-07-01",
+          "test_end": "2023-01-01",
+          "phase": "Crash"
+        },
+        {
+          "fold": "fold_4",
+          "train_start": "2021-07-01",
+          "train_end": "2023-07-01",
+          "test_start": "2023-07-01",
+          "test_end": "2024-01-01",
+          "phase": "Recovery"
+        },
+        {
+          "fold": "fold_5",
+          "train_start": "2022-01-01",
+          "train_end": "2024-01-01",
+          "test_start": "2024-01-01",
+          "test_end": "2024-07-01",
+          "phase": "Bull"
+        },
+        {
+          "fold": "fold_6",
+          "train_start": "2022-07-01",
+          "train_end": "2024-07-01",
+          "test_start": "2024-07-01",
+          "test_end": "2025-01-01",
+          "phase": "Bull"
+        },
+        {
+          "fold": "fold_7",
+          "train_start": "2023-01-01",
+          "train_end": "2025-01-01",
+          "test_start": "2025-01-01",
+          "test_end": "2025-07-01",
+          "phase": "Bull"
+        },
+        {
+          "fold": "fold_8",
+          "train_start": "2023-07-01",
+          "train_end": "2025-07-01",
+          "test_start": "2025-07-01",
+          "test_end": "2026-01-01",
+          "phase": "Bear"
+        }
+      ]
+    }
+  },
+  "synthetic_scenarios": [
+    {
+      "name": "high_separation",
+      "seed": 1001,
+      "n_obs": 4000,
+      "n_regimes": 3,
+      "separation": 0.25,
+      "persistence": 0.95,
+      "probability_dispersion": "high",
+      "detector_error": "low"
+    },
+    {
+      "name": "low_separation",
+      "seed": 1002,
+      "n_obs": 4000,
+      "n_regimes": 3,
+      "separation": 0.05,
+      "persistence": 0.95,
+      "probability_dispersion": "high",
+      "detector_error": "low"
+    },
+    {
+      "name": "asymmetric_utility",
+      "seed": 1003,
+      "n_obs": 4000,
+      "n_regimes": 2,
+      "separation": 0.2,
+      "persistence": 0.97,
+      "probability_dispersion": "high",
+      "detector_error": "low",
+      "utility_asymmetry": "strong"
+    },
+    {
+      "name": "low_dispersion",
+      "seed": 1004,
+      "n_obs": 4000,
+      "n_regimes": 3,
+      "separation": 0.25,
+      "persistence": 0.95,
+      "probability_dispersion": "low",
+      "detector_error": "low"
+    },
+    {
+      "name": "weak_detector",
+      "seed": 1005,
+      "n_obs": 4000,
+      "n_regimes": 3,
+      "separation": 0.25,
+      "persistence": 0.95,
+      "probability_dispersion": "high",
+      "detector_error": "high"
+    },
+    {
+      "name": "uninformative_regime",
+      "seed": 1006,
+      "n_obs": 4000,
+      "n_regimes": 3,
+      "separation": 0.25,
+      "persistence": 0.95,
+      "probability_dispersion": "high",
+      "detector_error": "uniform_posterior"
+    },
+    {
+      "name": "no_transition",
+      "seed": 1007,
+      "n_obs": 4000,
+      "n_regimes": 1,
+      "separation": 0.0,
+      "persistence": 1.0,
+      "probability_dispersion": "high",
+      "detector_error": "none"
+    },
+    {
+      "name": "decision_relevant_state",
+      "seed": 1008,
+      "n_obs": 4000,
+      "n_regimes": 2,
+      "separation": 0.35,
+      "persistence": 0.97,
+      "probability_dispersion": "high",
+      "detector_error": "low",
+      "decision_relevance": "strong"
+    }
+  ]
+}

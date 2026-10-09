@@ -1,0 +1,66 @@
+{
+  "placebo_by_scenario": [
+    {
+      "scenario": "asymmetric_utility",
+      "mean_real_gain": 0.15584192895385357,
+      "mean_circular_shift_gain": -0.09210773476228215,
+      "mean_block_permute_gain": -0.11077907437870467,
+      "placebo_gap_circular": 0.24794966371613575,
+      "placebo_gap_block": 0.2666210033325582
+    },
+    {
+      "scenario": "decision_relevant_state",
+      "mean_real_gain": 1.025079395932284,
+      "mean_circular_shift_gain": -0.13267189120501194,
+      "mean_block_permute_gain": -0.06845485792233261,
+      "placebo_gap_circular": 1.157751287137296,
+      "placebo_gap_block": 1.0935342538546164
+    },
+    {
+      "scenario": "high_separation",
+      "mean_real_gain": 0.0008937123806806834,
+      "mean_circular_shift_gain": 0.0018173423451482609,
+      "mean_block_permute_gain": -0.0017170946089899275,
+      "placebo_gap_circular": -0.0009236299644675774,
+      "placebo_gap_block": 0.002610806989670611
+    },
+    {
+      "scenario": "uninformative_regime",
+      "mean_real_gain": -0.006442561690417614,
+      "mean_circular_shift_gain": -0.003849080201621531,
+      "mean_block_permute_gain": -0.0017994121028463705,
+      "placebo_gap_circular": -0.002593481488796083,
+      "placebo_gap_block": -0.0046431495875712435
+    }
+  ],
+  "stability_by_scenario": [
+    {
+      "scenario": "decision_relevant_state",
+      "stability_rate": 1.0,
+      "dominant_feature": "volatility_20d",
+      "dominant_feature_rate": 1.0,
+      "mean_selection_frequency": 1.0
+    },
+    {
+      "scenario": "asymmetric_utility",
+      "stability_rate": 1.0,
+      "dominant_feature": "volatility_20d",
+      "dominant_feature_rate": 1.0,
+      "mean_selection_frequency": 0.9333333333333333
+    },
+    {
+      "scenario": "high_separation",
+      "stability_rate": 1.0,
+      "dominant_feature": "trend_strength",
+      "dominant_feature_rate": 1.0,
+      "mean_selection_frequency": 0.8066666666666666
+    },
+    {
+      "scenario": "uninformative_regime",
+      "stability_rate": 1.0,
+      "dominant_feature": "trend_strength",
+      "dominant_feature_rate": 0.8,
+      "mean_selection_frequency": 0.6666666666666667
+    }
+  ]
+}

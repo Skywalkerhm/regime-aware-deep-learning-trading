@@ -1,0 +1,82 @@
+{
+  "n_rows": 160,
+  "corr_regret_reduction_oracle__realized_gain": 0.9446342717787213,
+  "corr_delta_state_contrast__realized_gain": 0.9348807614162842,
+  "corr_ece__realized_gain": 0.09755661317697305,
+  "corr_brier__realized_gain": -0.1290236369869904,
+  "corr_ece__regret_reduction_oracle": 0.10972741080559766,
+  "by_scenario": [
+    {
+      "scenario": "asymmetric_utility",
+      "regret_reduction_oracle": 0.0005106390540217757,
+      "regret_reduction_deploy": 0.000572275115851233,
+      "delta_state_contrast": 0.011870162398665559,
+      "ece": 0.03679024581753659,
+      "brier": 0.1965716901090013,
+      "realized_gain": 0.15584192895385357
+    },
+    {
+      "scenario": "decision_relevant_state",
+      "regret_reduction_oracle": 0.0036140893381571447,
+      "regret_reduction_deploy": 0.003953270169773455,
+      "delta_state_contrast": 0.029713843905543304,
+      "ece": 0.034954847763148375,
+      "brier": 0.19583476703144426,
+      "realized_gain": 1.025079395932284
+    },
+    {
+      "scenario": "high_separation",
+      "regret_reduction_oracle": 5.095825906764384e-05,
+      "regret_reduction_deploy": 2.194116904954536e-05,
+      "delta_state_contrast": 0.003145073251462978,
+      "ece": 0.032027722573578235,
+      "brier": 0.19387920466451483,
+      "realized_gain": 0.0008937123806806834
+    },
+    {
+      "scenario": "low_dispersion",
+      "regret_reduction_oracle": 5.420427339178455e-05,
+      "regret_reduction_deploy": 1.4127011187912635e-05,
+      "delta_state_contrast": 0.004453650150028509,
+      "ece": 0.027341464654684438,
+      "brier": 0.23340999185240308,
+      "realized_gain": 0.00555081623073546
+    },
+    {
+      "scenario": "low_separation",
+      "regret_reduction_oracle": 5.5117462105395454e-05,
+      "regret_reduction_deploy": 1.033281766506458e-05,
+      "delta_state_contrast": 0.0032261164121808648,
+      "ece": 0.03487833458015922,
+      "brier": 0.19867945572072013,
+      "realized_gain": -0.0005985175979930091
+    },
+    {
+      "scenario": "no_transition",
+      "regret_reduction_oracle": 0.0,
+      "regret_reduction_deploy": 0.0,
+      "delta_state_contrast": 0.0,
+      "ece": 0.03377163549712946,
+      "brier": 0.1978002481531615,
+      "realized_gain": -0.010668688580096742
+    },
+    {
+      "scenario": "uninformative_regime",
+      "regret_reduction_oracle": 3.839736155126205e-05,
+      "regret_reduction_deploy": 1.546127715206252e-05,
+      "delta_state_contrast": 0.003001123076285442,
+      "ece": 0.030249074151151568,
+      "brier": 0.19590100171583066,
+      "realized_gain": -0.006442561690417614
+    },
+    {
+      "scenario": "weak_detector",
+      "regret_reduction_oracle": 5.4303505356043394e-05,
+      "regret_reduction_deploy": 1.917767417055984e-05,
+      "delta_state_contrast": 0.0032402691747483114,
+      "ece": 0.03215279292241876,
+      "brier": 0.1945392943925372,
+      "realized_gain": 0.00024550683093808173
+    }
+  ]
+}

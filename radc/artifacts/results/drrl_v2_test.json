@@ -1,0 +1,371 @@
+[
+  {
+    "scenario": "decision_relevant_state",
+    "seed": 1008,
+    "fixed_threshold": 0.6333333333333333,
+    "tree": {
+      "type": "split",
+      "feature": "volatility_20d",
+      "cutoff": 0.03,
+      "left": {
+        "type": "leaf",
+        "threshold": 0.8
+      },
+      "right": {
+        "type": "leaf",
+        "threshold": 0.3
+      }
+    },
+    "n_splits": 1,
+    "voi_low": 0.8200638135639646,
+    "positive_fraction": 1.0,
+    "activated": true,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.568905780401713,
+      "median_nu_lb": 0.568905780401713,
+      "mean_net_utility": 0.8015525917813167,
+      "mean_sharpe": 4.386009689695897,
+      "mean_max_drawdown": 0.08494298759815024,
+      "mean_turnover": 80.136
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": -0.35809619964293876,
+      "median_nu_lb": -0.35809619964293876,
+      "mean_net_utility": -0.13651910710741214,
+      "mean_sharpe": -0.6640673242685248,
+      "mean_max_drawdown": 0.6589699540859077,
+      "mean_turnover": 121.464
+    },
+    "external_delta": 0.9270019800446518
+  },
+  {
+    "scenario": "decision_relevant_state",
+    "seed": 1109,
+    "fixed_threshold": 0.8,
+    "tree": {
+      "type": "split",
+      "feature": "volatility_20d",
+      "cutoff": 0.03,
+      "left": {
+        "type": "leaf",
+        "threshold": 0.8
+      },
+      "right": {
+        "type": "leaf",
+        "threshold": 0.3
+      }
+    },
+    "n_splits": 1,
+    "voi_low": 0.6167945223402194,
+    "positive_fraction": 1.0,
+    "activated": false,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.030753108616218272,
+      "median_nu_lb": 0.030753108616218272,
+      "mean_net_utility": 0.1331741452782346,
+      "mean_sharpe": 1.2350241301748641,
+      "mean_max_drawdown": 0.1621246781232605,
+      "mean_turnover": 44.352
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.030753108616218272,
+      "median_nu_lb": 0.030753108616218272,
+      "mean_net_utility": 0.1331741452782346,
+      "mean_sharpe": 1.2350241301748641,
+      "mean_max_drawdown": 0.1621246781232605,
+      "mean_turnover": 44.352
+    },
+    "external_delta": 0.0
+  },
+  {
+    "scenario": "asymmetric_utility",
+    "seed": 1003,
+    "fixed_threshold": 0.41666666666666663,
+    "tree": {
+      "type": "split",
+      "feature": "volatility_20d",
+      "cutoff": 0.03,
+      "left": {
+        "type": "leaf",
+        "threshold": 0.6333333333333333
+      },
+      "right": {
+        "type": "leaf",
+        "threshold": 0.3
+      }
+    },
+    "n_splits": 1,
+    "voi_low": 0.08494446933600841,
+    "positive_fraction": 1.0,
+    "activated": true,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 1.0751866949793552,
+      "median_nu_lb": 1.0751866949793552,
+      "mean_net_utility": 1.2743528662899286,
+      "mean_sharpe": 5.236548611997218,
+      "mean_max_drawdown": 0.10817672555668789,
+      "mean_turnover": 117.432
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.8700992005323024,
+      "median_nu_lb": 0.8700992005323024,
+      "mean_net_utility": 1.0955799787602403,
+      "mean_sharpe": 3.92069060346665,
+      "mean_max_drawdown": 0.17784160698031032,
+      "mean_turnover": 114.912
+    },
+    "external_delta": 0.20508749444705276
+  },
+  {
+    "scenario": "asymmetric_utility",
+    "seed": 1104,
+    "fixed_threshold": 0.36666666666666664,
+    "tree": {
+      "type": "split",
+      "feature": "volatility_20d",
+      "cutoff": 0.03,
+      "left": {
+        "type": "leaf",
+        "threshold": 0.5666666666666667
+      },
+      "right": {
+        "type": "leaf",
+        "threshold": 0.3
+      }
+    },
+    "n_splits": 1,
+    "voi_low": -0.09699601267825453,
+    "positive_fraction": 0.5,
+    "activated": false,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 1.0372993148541463,
+      "median_nu_lb": 1.0372993148541463,
+      "mean_net_utility": 1.2940183548724524,
+      "mean_sharpe": 4.430371967947666,
+      "mean_max_drawdown": 0.15202611313566972,
+      "mean_turnover": 113.148
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 1.0372993148541463,
+      "median_nu_lb": 1.0372993148541463,
+      "mean_net_utility": 1.2940183548724524,
+      "mean_sharpe": 4.430371967947666,
+      "mean_max_drawdown": 0.15202611313566972,
+      "mean_turnover": 113.148
+    },
+    "external_delta": 0.0
+  },
+  {
+    "scenario": "uninformative_regime",
+    "seed": 1006,
+    "fixed_threshold": 0.5666666666666667,
+    "tree": {
+      "type": "leaf",
+      "threshold": 0.5166666666666666
+    },
+    "n_splits": 0,
+    "voi_low": -0.04700238088129688,
+    "positive_fraction": 0.5,
+    "activated": false,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.38048984772477573,
+      "median_nu_lb": 0.38048984772477573,
+      "mean_net_utility": 0.4777768330729014,
+      "mean_sharpe": 4.074219062361271,
+      "mean_max_drawdown": 0.07224074487457817,
+      "mean_turnover": 116.424
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.38048984772477573,
+      "median_nu_lb": 0.38048984772477573,
+      "mean_net_utility": 0.4777768330729014,
+      "mean_sharpe": 4.074219062361271,
+      "mean_max_drawdown": 0.07224074487457817,
+      "mean_turnover": 116.424
+    },
+    "external_delta": 0.0
+  },
+  {
+    "scenario": "uninformative_regime",
+    "seed": 1107,
+    "fixed_threshold": 0.6333333333333333,
+    "tree": {
+      "type": "split",
+      "feature": "trend_strength",
+      "cutoff": 0.0,
+      "left": {
+        "type": "leaf",
+        "threshold": 0.4833333333333333
+      },
+      "right": {
+        "type": "leaf",
+        "threshold": 0.5166666666666666
+      }
+    },
+    "n_splits": 1,
+    "voi_low": -0.09441406431133464,
+    "positive_fraction": 0.0,
+    "activated": false,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.35938265062655855,
+      "median_nu_lb": 0.35938265062655855,
+      "mean_net_utility": 0.4408764839504593,
+      "mean_sharpe": 4.2071469260742065,
+      "mean_max_drawdown": 0.08196057221492978,
+      "mean_turnover": 110.376
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.35938265062655855,
+      "median_nu_lb": 0.35938265062655855,
+      "mean_net_utility": 0.4408764839504593,
+      "mean_sharpe": 4.2071469260742065,
+      "mean_max_drawdown": 0.08196057221492978,
+      "mean_turnover": 110.376
+    },
+    "external_delta": 0.0
+  },
+  {
+    "scenario": "weak_detector",
+    "seed": 1005,
+    "fixed_threshold": 0.4833333333333333,
+    "tree": {
+      "type": "split",
+      "feature": "volatility_20d",
+      "cutoff": 0.03,
+      "left": {
+        "type": "leaf",
+        "threshold": 0.4833333333333333
+      },
+      "right": {
+        "type": "leaf",
+        "threshold": 0.6333333333333333
+      }
+    },
+    "n_splits": 1,
+    "voi_low": 0.005039999999999989,
+    "positive_fraction": 1.0,
+    "activated": false,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.347599912430406,
+      "median_nu_lb": 0.347599912430406,
+      "mean_net_utility": 0.4565124349355283,
+      "mean_sharpe": 3.53466294625186,
+      "mean_max_drawdown": 0.10577087403923133,
+      "mean_turnover": 123.48
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.347599912430406,
+      "median_nu_lb": 0.347599912430406,
+      "mean_net_utility": 0.4565124349355283,
+      "mean_sharpe": 3.53466294625186,
+      "mean_max_drawdown": 0.10577087403923133,
+      "mean_turnover": 123.48
+    },
+    "external_delta": 0.0
+  },
+  {
+    "scenario": "weak_detector",
+    "seed": 1106,
+    "fixed_threshold": 0.5666666666666667,
+    "tree": {
+      "type": "leaf",
+      "threshold": 0.5166666666666666
+    },
+    "n_splits": 0,
+    "voi_low": -0.05846399999999996,
+    "positive_fraction": 0.5,
+    "activated": false,
+    "external_policy": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.3403191698259757,
+      "median_nu_lb": 0.3403191698259757,
+      "mean_net_utility": 0.44855833630020764,
+      "mean_sharpe": 3.7316255343128066,
+      "mean_max_drawdown": 0.08802640793321072,
+      "mean_turnover": 126.504
+    },
+    "external_fixed": {
+      "n_groups": 1.0,
+      "mean_nu_lb": 0.3403191698259757,
+      "median_nu_lb": 0.3403191698259757,
+      "mean_net_utility": 0.44855833630020764,
+      "mean_sharpe": 3.7316255343128066,
+      "mean_max_drawdown": 0.08802640793321072,
+      "mean_turnover": 126.504
+    },
+    "external_delta": 0.0
+  },
+  {
+    "scenario": "real",
+    "seed": 20260928,
+    "fixed_threshold": 0.6333333333333333,
+    "tree": {
+      "type": "split",
+      "feature": "posterior_crisis",
+      "cutoff": 0.139864835336994,
+      "left": {
+        "type": "split",
+        "feature": "uncertainty",
+        "cutoff": 0.7509800231541786,
+        "left": {
+          "type": "leaf",
+          "threshold": 0.35
+        },
+        "right": {
+          "type": "leaf",
+          "threshold": 0.4
+        }
+      },
+      "right": {
+        "type": "split",
+        "feature": "uncertainty",
+        "cutoff": 0.8347712334987455,
+        "left": {
+          "type": "leaf",
+          "threshold": 0.31666666666666665
+        },
+        "right": {
+          "type": "leaf",
+          "threshold": 0.7666666666666666
+        }
+      }
+    },
+    "n_splits": 3,
+    "voi_low": 0.037055387887142584,
+    "positive_fraction": 0.8333333333333334,
+    "activated": false,
+    "external_policy": {
+      "n_groups": 14.0,
+      "mean_nu_lb": -0.09066596786215032,
+      "median_nu_lb": 0.0,
+      "mean_net_utility": -0.01837644151175218,
+      "mean_sharpe": -0.16610216838066355,
+      "mean_max_drawdown": 0.02411821853299893,
+      "mean_turnover": 11.610320755734433
+    },
+    "external_fixed": {
+      "n_groups": 14.0,
+      "mean_nu_lb": -0.09066596786215032,
+      "median_nu_lb": 0.0,
+      "mean_net_utility": -0.01837644151175218,
+      "mean_sharpe": -0.16610216838066355,
+      "mean_max_drawdown": 0.02411821853299893,
+      "mean_turnover": 11.610320755734433
+    },
+    "external_delta": 0.0
+  }
+]

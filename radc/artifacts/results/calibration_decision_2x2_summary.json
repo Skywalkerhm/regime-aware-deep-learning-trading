@@ -1,0 +1,120 @@
+{
+  "by_dataset": {
+    "synthetic": {
+      "raw_fixed": {
+        "mean_nu_lb": 0.43030017535228016,
+        "ece": 0.034329388519626636,
+        "activation_rate": 1.0
+      },
+      "raw_drrl": {
+        "mean_nu_lb": 0.7184260132319845,
+        "ece": 0.034329388519626636,
+        "activation_rate": 0.40625
+      },
+      "raw_fixed_0.50": {
+        "mean_nu_lb": 0.4282514418439087,
+        "ece": 0.034329388519626636,
+        "activation_rate": 1.0
+      },
+      "calibrated_fixed": {
+        "mean_nu_lb": 0.43030017535228016,
+        "ece": 0.035380330472785375,
+        "activation_rate": 1.0
+      },
+      "calibrated_drrl": {
+        "mean_nu_lb": 0.7184260132319845,
+        "ece": 0.035380330472785375,
+        "activation_rate": 0.40625
+      },
+      "calibrated_fixed_0.50": {
+        "mean_nu_lb": 0.4282514418439087,
+        "ece": 0.035380330472785375,
+        "activation_rate": 1.0
+      },
+      "effect_prob_cal_within_fixed": 0.0,
+      "effect_decision_cal_within_raw": 0.28812583787970436,
+      "effect_decision_cal_within_calibrated": 0.28812583787970436,
+      "interaction": 0.0,
+      "effect_prob_cal_at_naive_0.50": 0.0,
+      "ece_raw": 0.034329388519626636,
+      "ece_calibrated": 0.035380330472785375
+    },
+    "real": {
+      "raw_fixed": {
+        "mean_nu_lb": -0.09352070025807148,
+        "ece": 0.07421334545820132,
+        "activation_rate": 1.0
+      },
+      "raw_drrl": {
+        "mean_nu_lb": -0.09352070025807148,
+        "ece": 0.07421334545820132,
+        "activation_rate": 0.0
+      },
+      "raw_fixed_0.50": {
+        "mean_nu_lb": -0.40142979195628625,
+        "ece": 0.07421334545820132,
+        "activation_rate": 1.0
+      },
+      "calibrated_fixed": {
+        "mean_nu_lb": -0.09352070025807148,
+        "ece": 0.017243195589724175,
+        "activation_rate": 1.0
+      },
+      "calibrated_drrl": {
+        "mean_nu_lb": -0.09352070025807148,
+        "ece": 0.017243195589724175,
+        "activation_rate": 0.0
+      },
+      "calibrated_fixed_0.50": {
+        "mean_nu_lb": -0.40142979195628625,
+        "ece": 0.017243195589724175,
+        "activation_rate": 1.0
+      },
+      "effect_prob_cal_within_fixed": 0.0,
+      "effect_decision_cal_within_raw": 0.0,
+      "effect_decision_cal_within_calibrated": 0.0,
+      "interaction": 0.0,
+      "effect_prob_cal_at_naive_0.50": 0.0,
+      "ece_raw": 0.07421334545820132,
+      "ece_calibrated": 0.017243195589724175
+    }
+  },
+  "by_scenario": {
+    "asymmetric_utility": {
+      "raw_fixed": 0.968101682995183,
+      "raw_drrl": 1.0675728814726753,
+      "calibrated_fixed": 0.968101682995183,
+      "calibrated_drrl": 1.0675728814726753,
+      "ece_raw": 0.03814269689147599,
+      "ece_calibrated": 0.039825206183829204,
+      "drrl_activation": 0.625
+    },
+    "decision_relevant_state": {
+      "raw_fixed": 0.023353278398596505,
+      "raw_drrl": 1.0763854314399215,
+      "calibrated_fixed": 0.023353278398596505,
+      "calibrated_drrl": 1.0763854314399215,
+      "ece_raw": 0.03167639677152558,
+      "ece_calibrated": 0.031459597244485486,
+      "drrl_activation": 1.0
+    },
+    "high_separation": {
+      "raw_fixed": 0.35652981119108684,
+      "raw_drrl": 0.35652981119108684,
+      "calibrated_fixed": 0.35652981119108684,
+      "calibrated_drrl": 0.35652981119108684,
+      "ece_raw": 0.036408513411495806,
+      "ece_calibrated": 0.03938119111057837,
+      "drrl_activation": 0.0
+    },
+    "uninformative_regime": {
+      "raw_fixed": 0.37321592882425414,
+      "raw_drrl": 0.37321592882425414,
+      "calibrated_fixed": 0.37321592882425414,
+      "calibrated_drrl": 0.37321592882425414,
+      "ece_raw": 0.03108994700400916,
+      "ece_calibrated": 0.03085532735224844,
+      "drrl_activation": 0.0
+    }
+  }
+}

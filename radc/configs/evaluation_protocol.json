@@ -1,0 +1,106 @@
+{
+  "protocol_version": "2026-09-28-rutl-v1",
+  "method": "RUTL",
+  "random_seed": 20260928,
+  "action_space": {
+    "type": "long_flat",
+    "threshold_bounds": [
+      0.05,
+      0.95
+    ]
+  },
+  "costs": {
+    "transaction_cost_bps": 10,
+    "annualization_days": 252
+  },
+  "utility": {
+    "transaction_cost_bps": 10,
+    "drawdown_penalty": 0.25,
+    "drawdown_definition": "max(0, maximum_drawdown_t - maximum_drawdown_t_minus_1)"
+  },
+  "primary_metric": {
+    "name": "nu_lb",
+    "direction": "maximize",
+    "description": "5% lower bound of the block-bootstrap distribution of annualized mean net utility",
+    "bootstrap": {
+      "method": "moving_block_bootstrap",
+      "block_days": 10,
+      "replications": 2000,
+      "lower_quantile": 0.05,
+      "seed": 20260928
+    }
+  },
+  "guardrails": {
+    "max_drawdown_ratio_vs_best_baseline": 1.2,
+    "turnover_ratio_vs_current_rule": 1.5,
+    "lookahead_violations": 0,
+    "schema_errors": 0,
+    "nan_predictions": 0,
+    "threshold_bounds": [
+      0.05,
+      0.95
+    ],
+    "minimum_turnover_cap": 200.0
+  },
+  "score_components": [
+    "nu_lb",
+    "mean_net_utility",
+    "delta_vs_best_fixed",
+    "delta_vs_current_rule",
+    "max_drawdown",
+    "turnover",
+    "runtime_s"
+  ],
+  "behavior_descriptors": [
+    "policy_family",
+    "context_dependence",
+    "threshold_swing",
+    "turnover_regime",
+    "uncertainty_usage"
+  ],
+  "evaluation_splits": {
+    "search": [
+      "synthetic",
+      "BTC-USD:fold_1",
+      "BTC-USD:fold_2",
+      "BTC-USD:fold_3",
+      "BTC-USD:fold_4"
+    ],
+    "validation": [
+      "BTC-USD:fold_5",
+      "BTC-USD:fold_6"
+    ],
+    "external_confirmation": [
+      "BTC-USD:fold_7",
+      "BTC-USD:fold_8",
+      "TSLA:fold_1",
+      "TSLA:fold_2",
+      "TSLA:fold_3",
+      "TSLA:fold_4",
+      "TSLA:fold_5",
+      "TSLA:fold_6",
+      "TSLA:fold_7",
+      "TSLA:fold_8"
+    ]
+  },
+  "statistical_tests": [
+    "block_bootstrap_paired_difference",
+    "white_reality_check",
+    "spa",
+    "deflated_sharpe_ratio",
+    "benjamini_hochberg"
+  ],
+  "stopping": {
+    "max_generations": 60,
+    "max_wall_hours": 72,
+    "no_improvement_generations": 12,
+    "smoke_timeout_seconds": 30,
+    "full_evaluation_timeout_seconds": 120
+  },
+  "drrl": {
+    "activation_margin": 0.05,
+    "min_positive_fraction": 0.9,
+    "conformal_alpha": 0.1,
+    "turnover_risk_weight": 0.25
+  }
+}
